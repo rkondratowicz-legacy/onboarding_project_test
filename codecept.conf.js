@@ -14,7 +14,8 @@ exports.config = {
     }
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
+    guestbookPage: "./pages/Guestbook.js"
   },
   bootstrap: null,
   mocha: {},
