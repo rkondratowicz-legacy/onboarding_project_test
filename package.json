@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "codeceptjs": "^3.0.7"
+  },
+  "devDependencies": {
+    "@wdio/selenium-standalone-service": "^7.7.3"
+  }
+}
