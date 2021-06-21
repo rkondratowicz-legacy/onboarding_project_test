@@ -5,15 +5,24 @@ const { setHeadlessWhen } = require('@codeceptjs/configure');
 setHeadlessWhen(process.env.HEADLESS);
 
 exports.config = {
-  tests: './*_test.js',
+  tests: './tests/*_test.js',
   output: './output',
   helpers: {
     WebDriver: {
-      url: 'http://localhost',
+      url: 'https://www.qa-legacy.com/',
       browser: 'chrome'
     },
     PersonHelper: {
       require: './person_helper.js'
+    },
+    REST: {
+      endpoint: 'https://www.qa-legacy.com/us/obituaries/chicagotribune/name/bogus-name-obituary?pid=000000000',
+      onRequest: (request) => {
+        request.headers.auth = '123';
+      }
+    },
+    ChaiWrapper: {
+      require: 'codeceptjs-chai'
     }
   },
   include: {

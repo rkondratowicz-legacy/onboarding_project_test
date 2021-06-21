@@ -3,7 +3,7 @@ const { I } = inject();
 module.exports = {
   openPage(personId) {
     // Open the page
-    I.amOnPage(`https://www.qa-legacy.com/us/obituaries/chicagotribune/name/virginia-gruchalski-obituary?pid=${personId}`);
+    I.amOnPage(`https://www.qa-legacy.com/us/obituaries/chicagotribune/name/firstname-lastname-obituary?pid=${personId}`);
   },
   
   navigateSteps(personName) {
