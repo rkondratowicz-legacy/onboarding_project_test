@@ -1,6 +1,6 @@
-Feature('test guestbook');
+Feature('Correct Name Appears and Guestbook Message Functional');
 
-Scenario('test something', async ({ I, guestbookPage }) => {
+Scenario('Check name, scroll down page, fill and submit guestbook', async ({ I, guestbookPage }) => {
 
     // Query the DB with Person Helper
     const person = await I.getJanusPersonRecord();
@@ -21,4 +21,4 @@ Scenario('test something', async ({ I, guestbookPage }) => {
     );
 
     // 'npx codeceptjs run' to begin test
-});
+}).tag('@productionSafe').tag('@guestbook').tag('@Webdriver').tag('@onboarding_project').tag('@onboarding_project_test');
