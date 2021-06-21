@@ -1,18 +1,20 @@
 const { I } = inject();
 
 module.exports = {
-  navigateSteps() {
-      // Open the page
-      I.amOnPage('https://www.qa-legacy.com/us/obituaries/chicagotribune/name/virginia-gruchalski-obituary?pid=196167379');
+  openPage(personId) {
+    // Open the page
+    I.amOnPage(`https://www.qa-legacy.com/us/obituaries/chicagotribune/name/virginia-gruchalski-obituary?pid=${personId}`);
+  },
+  
+  navigateSteps(personName) {
+    // Assert that the decedent's first name appears in the Name section
+    I.see(personName, { css: 'div[data-component=NameHeadingText]' });
 
-      // Assert that the decedent's first name appears in the Name section
-      I.see('Virginia Grace Gruchalski', { css: 'div[data-component=NameHeadingText]' });
+    // Scroll down until the Guest Book is visible
+    I.scrollTo({ css: 'div[data-component=GuestbookBox]' });
 
-      // Scroll down until the Guest Book is visible
-      I.scrollTo({ css: 'div[data-component=GuestbookBox]' });
-
-      // 'From' input box must be selected to show remainder of form / submit button
-      I.click({ css: 'input[name=_GuestBookForm_From]' })
+    // 'From' input box must be selected to show remainder of form / submit button
+    I.click({ css: 'input[name=_GuestBookForm_From]' })
   },
 
   fields: {

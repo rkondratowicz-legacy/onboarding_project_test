@@ -11,6 +11,9 @@ exports.config = {
     WebDriver: {
       url: 'http://localhost',
       browser: 'chrome'
+    },
+    PersonHelper: {
+      require: './person_helper.js'
     }
   },
   include: {
