@@ -27,6 +27,5 @@ module.exports = {
     I.fillField(this.fields.from, name);
     I.fillField(this.fields.message, message);
     I.fillField(this.fields.email, email);
-    I.click('Submit Your Message');
   }
 }
