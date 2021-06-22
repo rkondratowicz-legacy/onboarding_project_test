@@ -1,11 +1,4 @@
-const { setHeadlessWhen } = require('@codeceptjs/configure');
-
-// turn on headless mode when running with HEADLESS=true environment variable
-// export HEADLESS=true && npx codeceptjs run
-setHeadlessWhen(process.env.HEADLESS);
-
 exports.config = {
-  tests: './tests/*_test.js',
   output: './output',
   helpers: {
     WebDriver: {
@@ -27,12 +20,20 @@ exports.config = {
   },
   include: {
     I: './steps_file.js',
-    guestbookPage: "./pages/Guestbook.js"
+    guestbookPage: './pages/Guestbook.js'
   },
-  bootstrap: null,
   mocha: {},
-  name: 'onboarding_project_test',
+  bootstrap: null,
+  teardown: null,
+  hooks: [],
+  gherkin: {
+    features: './features/*.feature',
+    steps: ['./step_definitions/steps.js']
+  },
   plugins: {
+    screenshotOnFail: {
+      enabled: true
+    },
     wdio: {
       enabled: true,
       services: ['selenium-standalone']
@@ -43,9 +44,8 @@ exports.config = {
     },
     tryTo: {
       enabled: true
-    },
-    screenshotOnFail: {
-      enabled: true
     }
-  }
+  },
+  tests: './tests/*_test.js',
+  name: 'onboarding_project_test'
 }
